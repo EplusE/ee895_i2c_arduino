@@ -1,0 +1,50 @@
+#######################################
+# Syntax Coloring Map For EE895_i2c
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ee895I2c	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+getAllMeasurements		KEYWORD2
+getTempC			KEYWORD2
+getTempF			KEYWORD2
+getTempK			KEYWORD2
+getCo2AverWithPc		KEYWORD2
+getCo2RawWithPc			KEYWORD2
+getCo2AverWithNpc		KEYWORD2
+getCo2RawWithNpc		KEYWORD2
+getPressureMbar			KEYWORD2
+getPressurePsi			KEYWORD2
+readSerialNumber		KEYWORD2
+readFirmwareVersion		KEYWORD2
+readSensorname			KEYWORD2
+readMeasuringMode		KEYWORD2
+changeMeasuringMode		KEYWORD2
+dataReady			KEYWORD2
+triggerReady			KEYWORD2
+triggerNewMeasurement		KEYWORD2
+triggerReady			KEYWORD2
+changeCo2MeasuringInterval	KEYWORD2
+readCo2MeasuringInterval	KEYWORD2
+changeCo2FilterCoefficient	KEYWORD2
+readCo2FilterCoefficient	KEYWORD2
+changeCo2CustomOffset		KEYWORD2
+readCo2CustomOffset		KEYWORD2
+changeCustomerRegister1		KEYWORD2
+readCustomerRegister1		KEYWORD2
+changeCustomerRegister2		KEYWORD2
+readCustomerRegister2		KEYWORD2
+getErrorString			KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+CRC16_ONEWIRE_START	LITERAL1

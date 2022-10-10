@@ -22,8 +22,13 @@
 |------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1    | Connect the EE895 sensor module with Arduino according to the following scheme: <br> [<img src="images/EE895_arduino.PNG" width="60%"/>](images/EE895_arduino.PNG)|
 | 2    | Download and install the Arduino IDE (https://www.arduino.cc/en/software). Version >1.8.7 recommended.                                                            |
-| 3    | Connect the Arduino to your PC via the USB cable. Select Board “Arduino Uno” and the appropriate COM-Port from Tools menu and upload the sketch (ee895_i2c_arduino.ino)       |
-| 4    | When the upload is finished, open the the "Serial Monitor" with the key combination (Control + Shift + M) or via the menu bar: <br> [<img src="images/serial_Monitor.png" width="400"/>](images/serial_Monitor.png) |
+| 3    | Download the ZIP File of this project.|
+| 4    | Open the arduino software.|
+| 5    | Go to: <br>[<img src="images/add_library.png" width="550"/>](images/add_library.png) |
+| 6    | Search for the downloaded ZIP File and open it.|
+| 7    | Go to:<br>[<img src="images/open_file.png" width="500"/>](images/open_file.png)|
+| 8    | Connect the Arduino to your PC via the USB cable. Select Board “Arduino Uno” and the appropriate COM-Port from Tools menu and upload the sketch |
+| 9    | When the upload is finished, open the the "Serial Monitor" with the key combination (Control + Shift + M) or via the menu bar: <br> [<img src="images/serial_Monitor.png" width="400"/>](images/serial_Monitor.png) |
 
 
 ### Please note:
