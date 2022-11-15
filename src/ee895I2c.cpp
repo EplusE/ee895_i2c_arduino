@@ -73,7 +73,9 @@ uint8_t ee895I2c::getTempC(float &temperature)
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     temperature = *(float*)&x;
     return 0;
   }
@@ -94,7 +96,9 @@ uint8_t ee895I2c::getTempF(float &temperature)
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     temperature = *(float*)&x;
     return 0;
   }
@@ -114,7 +118,9 @@ uint8_t ee895I2c::getTempK(float &temperature)
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     temperature = *(float*)&x;
     return 0;
   }
@@ -135,7 +141,9 @@ uint8_t ee895I2c::getCo2AverWithPc(int &co2) // pressure compensated
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     co2 = *(float*)&x;
     return 0;
   }
@@ -156,7 +164,9 @@ uint8_t ee895I2c::getCo2RawWithPc(int &co2) // pressure compensated
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     co2 = *(float*)&x;
     return 0;
   }
@@ -176,7 +186,9 @@ uint8_t ee895I2c::getCo2AverWithNpc(int &co2) // not pressure compensated
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     co2 = *(float*)&x;
     return 0;
   }
@@ -197,7 +209,9 @@ uint8_t ee895I2c::getCo2RawWithNpc(int &co2) // not pressure compensated
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6];
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     co2 = *(float*)&x;
     return 0;
   }
@@ -218,7 +232,9 @@ uint8_t ee895I2c::getPressureMbar(float &pressure) // in mbar
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     pressure = *(float*)&x;
     return 0;
   }
@@ -239,7 +255,9 @@ uint8_t ee895I2c::getPressurePsi(float &pressure) // in psi
   crc16_check = (i2cResponse[7] << 8) + i2cResponse[6]; 
   if (crc16_check == calcCrc16(i2cResponse, 7))
   {
-    uint32_t x = (i2cResponse[4] << 24 | i2cResponse[5] << 16 | i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t xh = (i2cResponse[4] << 8 | i2cResponse[5]);
+    uint16_t xl = (i2cResponse[2]  << 8 | i2cResponse[3]);
+    uint32_t x = (xl | xh << 16);
     pressure = *(float*)&x;
     return 0;
   }
