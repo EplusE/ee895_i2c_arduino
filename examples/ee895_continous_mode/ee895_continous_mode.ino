@@ -55,8 +55,6 @@ void setup()
     }
     Serial.println("");
   }
-  
-
   errorcode = ee.readFirmwareVersion(FwVersion);
   if (errorcode != 0)
   {
@@ -70,8 +68,6 @@ void setup()
     Serial.print(".");
     Serial.println(FwVersion[1]);
   }
-  
-
   errorcode = ee.readSensorname(Sensorname);
   if (errorcode != 0)
   {
@@ -120,9 +116,6 @@ void setup()
     Serial.print("Measuring Interval:");
     Serial.println(measuringInterval);
   }
-  
-
-  
   Serial.print("temperature"); // print CSV header
   Serial.print(CSV_DELIMITER);
   Serial.print("co2");

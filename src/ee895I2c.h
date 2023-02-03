@@ -30,8 +30,31 @@ We assume no liability for the information contained in this document.
 
 // Defines
 //-----------------------------------------------------------------------------
-#define CRC16_ONEWIRE_START 0xFFFF
-
+#define CRC16_ONEWIRE_START                 0xFFFF
+#define FUNCTION_CODE_READ_REGISTER         0x03
+#define FUNCTION_CODE_WRITE_REGISTER        0x06
+#define READ_ALL_MEASUREMENTS               0x00
+#define USER_REGISTER_1                     0x16A8
+#define USER_REGISTER_2                     0x16A9
+#define REGISTER_TEMPERATURE_CELSIUS        0x03EA
+#define REGISTER_TEMPERATURE_FAHRENHEIT     0x03EC
+#define REGISTER_TEMPERATURE_KELVIN         0x03F0
+#define REGISTER_CO2_AVERAGE_PC             0x0424  //PC = pressure compensated
+#define REGISTER_CO2_RAW_PC                 0x0426  //PC = pressure compensated
+#define REGISTER_CO2_AVERAGE_NPC            0x0428  //NPC = no pressure compensated
+#define REGISTER_CO2_RAW_NPC                0x042A  //NPC = no pressure compensated
+#define REGISTER_PRESSURE_MBAR              0x04B0
+#define REGISTER_PRESSURE_PSI               0x04B2
+#define REGISTER_SERIAL_NUMBER              0x0000
+#define REGISTER_FIRMWARE_VERSION           0x0008
+#define REGISTER_SENSORNAME                 0x0009
+#define REGISTER_MEASURING_MODE             0x01F8
+#define REGISTER_MEASURING_STATUS           0x01F9
+#define REGISTER_MEASURING_TRIGGER          0x01FA
+#define REGISTER_DETAILED_STATUS            0x0258
+#define REGISTER_CO2_MEASURING_INTERVAL     0x1450
+#define REGISTER_CO2_FILTER_COEFFICIENT     0x1451
+#define REGISTER_CO2_CUSTOMER_OFFSET        0x1452
 
 // declaration of functions
 //-----------------------------------------------------------------------------
@@ -70,6 +93,9 @@ public:
     uint8_t changeCustomerRegister2(int customerOffset);
     uint8_t readCustomerRegister2(int &customerRegister);
     unsigned char address = 0x5F;
+    uint8_t writeToRegister(uint16_t registerAddress, uint8_t bytesToWrite[]);
+    uint8_t readBytesFromRegister(unsigned char buf[], uint16_t registerAddress, uint16_t registerToRead, uint8_t bytesToRead);
+    float bytesToValue(unsigned char buf[]);
     void wireWrite(unsigned char buf[], int to, bool stopmessage);
     void wireRead(unsigned char buf[], uint8_t to);
     uint16_t calcCrc16(unsigned char buf[], unsigned char len);
